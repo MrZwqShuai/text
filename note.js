@@ -25,3 +25,7 @@
         console.log(str)
 
 	</script>
+//获得10为长度的随机字符串
+<script>
+	Math.random().toString(36).substr(2,10) ;	
+	</script>
