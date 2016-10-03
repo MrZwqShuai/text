@@ -29,3 +29,26 @@
 <script>
 	Math.random().toString(36).substr(2,10) ;	
 	</script>
+	
+//对知乎上关于依赖注入的封装
+ <script>
+	function logObj(fn) {
+	 	return {
+	 		write : function(content) {
+	 			fn(content) ;
+	 		}
+	 	}
+	 }
+        
+        var myFunc = myFuncFactory(logObj(console.log)) ;
+        myFunc() ;
+        myFuncFactory(logObj(alert))() ;
+
+        function myFuncFactory(logger) {
+        	return function() {
+        		var result = ['aaa','zzz',{name : 'zwq'}] ;
+        		logger.write(result) ;
+        	}
+        }
+       
+	 </script>
