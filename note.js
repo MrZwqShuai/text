@@ -53,7 +53,7 @@
        
 	 </script>
 	 
-	 让IE兼容forEach的方法
+	 //让IE兼容forEach的方法
 	 //Array.forEach implementation for IE support..  
 //https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach  
 if (!Array.prototype.forEach) {  
