@@ -81,3 +81,11 @@ if (!Array.prototype.forEach) {
         }  
     };  
 } 
+//MVVM框架例如vue.js Knockout.js 等均采用的Object.defineProperty来设置getter/setter 采用这种做法比AngularJs1.X
+//使用的Dirty check的性能高但Object.defineProperty使用的是Es5的技术，并且在ie8里只在Dom元素上起作用,对原生Js对象无效 所以只能兼容到IE8以上的浏览器
+
+
+
+
+
+
