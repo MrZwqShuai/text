@@ -85,7 +85,22 @@ if (!Array.prototype.forEach) {
 //使用的Dirty check的性能高但Object.defineProperty使用的是Es5的技术，并且在ie8里只在Dom元素上起作用,对原生Js对象无效 所以只能兼容到IE8以上的浏览器
 
 
+//给数组原型添加一个方法 该方法返回一个删除数组中同样的元素
+ Array.prototype.distinct = function(){
+ 	var _arr = new Array() ;
+ 	var obj = new Object() ;
+ 	for(var i = 0 ; i<this.length ; i++){
+ 		var val = this[i] ;
+ 		if(!obj[val]){
+ 			obj[val] = 1 ;//标记
+ 			_arr.push(val) ;
+ 		}
+ 	}
+ 	return _arr ;
+ }
+var newarr = [1,2,3,2,4]
 
+console.log(newarr.distinct())
 
 
 
