@@ -100,7 +100,7 @@ if (!Array.prototype.forEach) {
  }
 var newarr = [1,2,3,2,4]
 
-console.log(newarr.distinct())
+console.log(newarr.distinct()) //[1,2,3,4]
 
 
 
