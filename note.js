@@ -112,3 +112,20 @@ console.log(newarr.distinct()) //[1,2,3,4]
 //Js的主线程在队列按照顺序执行，而异步任务会进入另一个任务队列而不会阻塞主线程。	
 
 
+//回调函数(将函数作为参数传入另一个函数等待父函数执行完回调再执行传入的函数)中文解释就是父函数执行完之后再来执行回调
+//来个B格高一点的
+//A callback is a function that is passed as an argument to another function and is executed after its parent function has completed.
+//举个栗子
+function test(callback) {
+        console.log('我是父函数') ;
+        console.log('我是回调函数') ;
+        callback() ;
+      }
+      function a() {
+        console.log('我是回调函数a') ;
+      }
+      function b() {
+        console.log('我是回调函数b') ;
+      }
+      test(a) ;//我是回调函数a
+      test(b) ;//我是回调函数b
