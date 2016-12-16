@@ -186,3 +186,38 @@ function whenBothEnd() {
   console.log('动画全部结束');  
 }  
 $.when(animate1, animate2).done(whenBothEnd);  
+
+
+//20161216原生Js实现的路由(利用hash，监听hashchange事件在其回调函数中操作dom)
+<ul>
+        <li><a href="#/zwq">1111</a></li>
+        <li><a href="#/zzz">2222</a></li>
+    </ul>
+
+
+    <script>
+        'use strict'
+        window.addEventListener('hashchange',fn) ;
+
+        var routes = [] ;
+        var paths = {} ;
+        var currentUrl = ' ' ;
+
+        function fn() {
+        var urlRoute = location.hash.slice(1) ;
+            paths[urlRoute]() ;
+        }
+
+        function route(path,callback) {
+            paths[path] = callback || function() {} ;
+        }
+        
+        route('/zwq',function() {
+            alert('zwqzwqzwq') ;
+        }) ;
+        route('/zzz',function() {
+            setTimeout(function() {
+              document.querySelector('body').style.backgroundColor = 'black' ;  
+          },1000) ;
+        }) ;
+    </script>
