@@ -221,3 +221,10 @@ $.when(animate1, animate2).done(whenBothEnd);
           },1000) ;
         }) ;
     </script>
+
+//2016 12 20
+//Js实现Jq hasClass addClass removeClass
+function hasClass(ele,cls) {
+            var reg = new RegExp(clx) ;
+            return reg.test(ele.className) ;
+        }
