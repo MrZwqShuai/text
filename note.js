@@ -224,7 +224,28 @@ $.when(animate1, animate2).done(whenBothEnd);
 
 //2016 12 20
 //Js实现Jq hasClass addClass removeClass
-function hasClass(ele,cls) {
-            var reg = new RegExp(clx) ;
-            return reg.test(ele.className) ;
+function hasClass(ele, cls) {
+        var reg = new RegExp(cls);
+        return reg.test(ele.className);
+    }​
+    function addClass(ele, cls) {
+        if (typeof cls == 'string') {
+            ele.className += ' ' + cls;
         }
+    }
+
+    function removeClass(ele, cls) {
+        if (hasClass(ele, cls)) {
+            var reg = new RegExp(cls);
+            ele.className = ele.className.replace(reg, ' ')
+        }
+    }
+
+    function toggleClass(ele, cls) {
+        if (hasClass(ele, cls)) {
+            removeClass(ele, cls)
+        } else {
+            addClass(ele, cls)
+        }
+    }
+ toggleClass(document.querySelector(element), className);
