@@ -279,3 +279,10 @@ function deviceMotionHandler(eventData) {
             last_z = z;
         }
 }
+利用事件冒泡实现事件委托
+document.onmousedown = function(e) {
+        console.log(e.target);
+        var target = e.target;//点击的目标元素
+        target.style.display = "none";//点击当前对象 将会消失 
+    }
+js中用组合模式编程的时候 一定要注意嵌套函数的this指向 还有 变量尽量不要让对象都能访问到 尽量私有化
