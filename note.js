@@ -285,4 +285,24 @@ document.onmousedown = function(e) {
         var target = e.target;//点击的目标元素
         target.style.display = "none";//点击当前对象 将会消失 
     }
+例子
+    <ul id="ul">
+        <li>aaaaaaaa</li>
+        <li>bbbbbbbb</li>
+        <li>cccccccc</li>
+    </ul>
+    <script>
+    window.onload = function() {
+        var ul = document.getElementById('ul');
+        ul.onmousemove = function(ev) {
+            var ev = ev || window.ev;
+            var target = ev.target;
+            target.style.color= "red"; //点
+        }
+        var a = document.createElement('li') ;
+        a.textContent = 'zwq' ;
+        ul.appendChild(a)
+    }
+    </script>
+
 js中用组合模式编程的时候 一定要注意嵌套函数的this指向 还有 变量尽量不要让对象都能访问到 尽量私有化
