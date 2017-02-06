@@ -279,7 +279,7 @@ function deviceMotionHandler(eventData) {
             last_z = z;
         }
 }
-利用事件冒泡实现事件委托
+//17.2.5 S利用事件冒泡实现事件委托
 document.onmousedown = function(e) {
         console.log(e.target);
         var target = e.target;//点击的目标元素
@@ -306,3 +306,10 @@ document.onmousedown = function(e) {
     </script>
 
 js中用组合模式编程的时候 一定要注意嵌套函数的this指向 还有 变量尽量不要让对象都能访问到 尽量私有化
+
+//17.2.6S
+闭包 在本身词法作用域外执行函数的函数 可以称之为闭包
+下面这个立即执行函数表达式严格来说并不是闭包(是通过普通作用域Rigth查找而非闭包发现的) 但他确实创建了闭包,而且也常常用来创建可以被封闭起来的闭包的工作
+var a = 2 ; 
+(function IIFE() { 
+	console.log(a) })()
