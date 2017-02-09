@@ -313,3 +313,24 @@ js中用组合模式编程的时候 一定要注意嵌套函数的this指向 还
 var a = 2 ; 
 (function IIFE() { 
 	console.log(a) })()
+
+
+2.9
+class Contact {
+    id: number;
+    name: string;
+}
+const FETCH_LATENCY = 5000;
+const CONTACTS: Contact[] = [
+    new Contact()
+]
+let promise = () => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(CONTACTS)
+        },FETCH_LATENCY)
+    }).then(contact => {
+        console.log(contact);
+    })
+}
+promise();
