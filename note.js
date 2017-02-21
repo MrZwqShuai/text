@@ -334,3 +334,29 @@ let promise = () => {
     })
 }
 promise();
+2 21//由于硬绑定function foo() { console.log(this.property) } var bar = function() { foo.call(obj) }这种强制性将this绑定到指定对象 防治函数出现默认绑定这样会大大降低函数的灵活性 适用硬绑定之后无法再隐式和显式绑定this 所以出现了软绑定 给默认绑定指定一个全局对象和undefined意外的值，那就可以实现和硬绑定同样的效果，同时还可以实现隐式和显式绑定
+    if (!Function.prototype.softBind) {
+        Function.prototype.softBind = function(obj) {
+            var fn = this;
+            var curried = [].slice.call(arguments, 1);
+            var bound = function() {
+                return fn.apply(
+                    (!this || this === (window || gobal)) ? obj : this,
+                    curried.concat.apply(curried, arguments)
+                );
+            };
+            bound.prototype = Object.create(fn.prototype);
+            return bound;
+        };
+    }
+    var foo = function() {
+        console.log(this.a);
+    }
+    var obj1 = {
+            a: 3
+        },
+        obj2 = {
+            a: 666
+        };
+    foo.softBind(obj1)();//3
+    foo.softBind(obj2)();//666
